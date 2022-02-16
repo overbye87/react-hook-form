@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 const App = () => {
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     reset,
     handleSubmit,
   } = useForm({ mode: "onBlur" });
@@ -43,7 +43,7 @@ const App = () => {
             },
           })}
         />
-        <input type="submit" />
+        <input type="submit" disabled={!isValid} />
       </form>
       <div>
         {errors?.firstName && (
